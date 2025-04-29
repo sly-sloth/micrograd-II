@@ -9,7 +9,9 @@ def softmax(x: List[Value]):
     for i in range(len(exp_list)):
         exp_list[i] /= exp_sum
     
-    return [Value(i) for i in exp_list]
+    output = []
+    for i in range(len(x)):
+        output.append(Value(exp_list[i], (x[i], ), "softmax"))
 
 
 def argmax(x: List[Value]):

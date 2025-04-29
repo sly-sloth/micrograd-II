@@ -87,6 +87,8 @@ class Value:
                 elif node._op == "sigmoid":
                     # print("sigmoid op found")
                     node._prev[0].grad += node.grad * node.data * (1 - node.data)
+                elif node._op == "softmax":
+                    pass
                 else:
                     raise ValueError("Unknown operation found, not supported!")
 
